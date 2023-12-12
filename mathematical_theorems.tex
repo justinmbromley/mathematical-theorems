@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{amsmath, tikz, amsthm, hyperref, amssymb}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\title{Mathematical Theorems}
+\author{Justin Bromley}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Functions}
+\begin{theorem}[\textbf{Intermediate Value Theorem}]
+    Suppose \( f \) is a continuous function on the closed interval \([a, b]\). If \( V \) is any number between \( f(a) \) and \( f(b) \), then there exists at least one number \( c \) in the open interval \((a, b)\) such that \( f(c) = V \).
+    \cite{stewart2015precalculus}
+\end{theorem}
+\begin{tikzpicture} 
+    \def \minx {-3}
+    \def \maxx {6}
+    \def \miny {-1}
+    \def \maxy {5}
+
+
+    \draw[thick, latex-latex] (\minx-0.3,0)--(\maxx+0.3,0);
+    \draw[thick, latex-latex] (-2,\miny-0.3)--(-2,\maxy+0.3);
+    \node at (\maxx+0.5,0) {$x$};
+    \node at (-2,\maxy+0.5) {$y$};
+
+    \draw [purple!80!black,dotted,thick] (3.25,2.5) -- (3.25,-0.1);
+    \draw [purple!80!black,dotted,thick] (3.25,2.5) -- (-2,2.5);
+
+    \draw [thick ] (-2.1,4.25) -- (-1.9,4.25);
+    \draw [thick ] (-2.1,1.47) -- (-1.9,1.47);
+
+
+    \draw[cyan!80!black,ultra thick, domain=-1:5.5, smooth,variable=\x]  plot ({\x},{2.5+1.8*cos(180*(0.6*\x-3.5)/3.14)});
+    \node[cyan!80!black] at (4.2,4) {\small $f(x)$};
+
+    \draw [very thick,cyan!60!black,fill=cyan!60!black] (-1,1.47) circle [radius=0.05];
+
+    \draw [very thick,cyan!60!black,fill=cyan!60!black] (5.5,4.25) circle [radius=0.05];
+
+    \node[left] at (-2,4.25) { $f(b)$};
+    \node[purple!80!black,left] at (-2,2.5) {$V$};
+    \node[left] at (-2,1.47) {$f(a)$};
+
+    \draw[thick] (5.5,0.1)--(5.5,-0.1);
+    \draw[thick] (-1,0.1)--(-1,-0.1);
+
+    \node[below] at (5.5,-0.1) {$b$};
+    \node[below] at (-1,-0.1) {$a$};
+    \node[purple!80!black,below] at (3.25,-0.1) {$c$};
+\end{tikzpicture}
+\cite{tikzsnippets}
+
+\section{Polynomials}
+\begin{theorem}[\textbf{Extreme Value Theorem}]
+    If $f: K\rightarrow \mathbb{R}$ is continuous on a compact set $K\subseteq\mathbb{R}$, then, \( f \) attains a maximum and minimum value. 
+    In other words, there exist \( x_0, x_1 \in K \) such that \( f(x_0) \leq f(x) \leq f(x_1) \) for all \( x \in K \).
+    \cite{abbott2015understanding}
+\end{theorem}
+
+\begin{proposition}[\textbf{Local Extrema of Polynomials}]
+    If $P(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_1x+a_0$
+    is a polynomial of degree $n$, then the graph of $P$ has at most $n-1$ local extrema.
+    \cite{stewart2015precalculus}
+\end{proposition}
+
+\begin{theorem}[\textbf{Remainder Theorem}]
+    If the polynomial $P(x)$ is divided by $x-c$, then the remainder is the value $P(c)$
+    \cite{stewart2015precalculus}
+\end{theorem}
+
+\begin{theorem}[\textbf{Factor Theorem}]
+    \( P(c) = 0 \) if and only if \( (x - c) \) is a factor of \( P(x) \).
+    \cite{stewart2015precalculus}
+\end{theorem}
+
+\begin{theorem}[\textbf{Rational Zeros Theorem}]
+    If the polynomial $P(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0$ has integer coefficients (where $a_n \neq 0$ and $a_0 \neq 0$), then every rational zero of $P$ is of the form $\frac{p}{q}$, where $p$ and $q$ are integers and
+    \begin{itemize}
+        \item $p$ is a factor of the constant coefficient $a_0$
+        \item $q$ is a factor of the leading coefficient $a_n$
+    \end{itemize}
+    \cite{stewart2015precalculus}
+\end{theorem}
+
+\begin{theorem}[\textbf{Upper and Lower Bound Theorem}]
+    Let $P$ be a polynomial with real coefficients.
+    \begin{enumerate}
+        \item If we divide $P(x)$ by $(x - b)$ (with $b \neq 0$) using synthetic division, and if the row that contains the quotient and remainder has no negative entry, then $b$ is an upper bound for the real zeros of $P$.
+        \item If we divide $P(x)$ by $(x - a)$ (with $a \neq 0$) using synthetic division, and if the row that contains the quotient and remainder has entries that are alternately nonpositive and nonnegative, then $a$ is a lower bound for the real zeros of $P$.
+    \end{enumerate}
+    \cite{stewart2015precalculus}
+\end{theorem}
+
+
+
+
+
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
